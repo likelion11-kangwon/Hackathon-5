@@ -1,0 +1,39 @@
+@import "./style.css?after";
+
+input:invalid + span::after {
+    content: "✖";
+    padding-left: 5px;
+    color: #8b0000;
+}
+
+input:valid + span::after {
+    content: "✓";
+    padding-left: 5px;
+    color: #009000;
+}
+
+/* 회원가입 버튼 */
+.button-container{
+    text-align: center;
+}
+.button-container button{
+    background-color: var(--c-main);
+}
+
+/* 세세한 조정 */
+#distinct-check{
+    font-size: 20px;
+    height: 32px;
+    padding: 0px 10px;
+    background-color: var(--c-red);
+}
+.deco-signin-small{
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+.deco-signin-input{
+    margin-bottom: 10px;
+}
+small{
+    font-size: 15px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="/css/main.css?after">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+    <div class="homepage">
+        <div class="cover">
+            <div class="top-container">
+                <p th:text="${session.loginId} + '님'"></p>
+                <img 
+                    class="material-ui" 
+                    src="/img/material-symbols_logout.svg" alt="logout-button" 
+                    title="나가기"
+                    onclick="location.href='/member/logout'"
+                />
+            </div>
+            <div class="button-container">
+                <button id="selling-b" onclick="location.href='/main/saleform'">상품 판매하기</button>
+                <button id="mypage-b" onclick="location.href='/main/mypage'">판매/구매 관리</button>
+            </div>
+
+            <div class='bottom-container'>
+                <img 
+                    class="material-ui" id="down-arrow"
+                    src="/img/gg_arrow-down-o.svg" alt="next page of main"
+                    title="상품 구경하러 가기"
+                    onclick="scrollToShowcase()"
+                />
+            </div>
+        </div>
+
+        <div class="deco-farmFrash">
+            <span>FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASH FARM FRASHFARM FRASH FARM FRASH FARM FRASH FARM FRASH</span>
+        </div>
+
+        <div class="showcase">
+            <div class="search-box">
+                <img class="material-ui" src="/img/material-symbols_search.svg" alt="search button" title="검색하기"/>
+                <input type="text" placeholder="검색어를 입력하세요..."/>
+            </div>
+            <div class="category-filter">
+                <button>더 많은 상품분류</button>
+            </div>
+
+            <!-- 상품 게시판 -->
+            <div id="post-container">
+
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        $(document).ready(function() {
+            $(document).click(function() {
+                if(![[${session.loginId}]]) {
+                    alert("로그인 후 서비스를 이용해주세요.");
+                    window.location.href = "/";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
